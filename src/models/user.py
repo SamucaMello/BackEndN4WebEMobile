@@ -16,7 +16,7 @@ class User(Document):
 
 class RegisterUserModel(BaseModel):
     nome: str
-    email: EmailStr
+    email: str
     senha: str
 
 class LoginUserModel(BaseModel):
