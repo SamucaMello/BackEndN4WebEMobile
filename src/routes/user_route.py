@@ -23,7 +23,7 @@ async def login_user(request:Request, loginUser:LoginUserModel):
     if not found_user:
         return JSONResponse({"message": "E-mail ou senha inválidos."}, 400)
     
-    if not bcrypt.checkpw(found_user.senha.encode('utf-8'),  loginUser.senha.encode('utf-8')):
+    if not bcrypt.checkpw(loginUser.senha.encode('utf-8'),  found_user.senha.encode('utf-8')):
         return JSONResponse({"message": "E-mail ou senha inválidos."}, 400) 
 
     return JSONResponse({
